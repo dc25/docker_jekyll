@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /tmp
 
 COPY build_scripts/Gemfile .
+COPY build_scripts/Gemfile.lock .
 COPY build_scripts/install_bundler .
 RUN ./install_bundler
 
+WORKDIR /workarea
+COPY build_scripts/jserv.sh .
