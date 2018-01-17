@@ -1,6 +1,6 @@
 #! /bin/bash
 
 sudo gem install bundler
-sudo /usr/local/bin/bundle update
 sudo gem install rake
+sudo /usr/local/bin/bundle install
 
