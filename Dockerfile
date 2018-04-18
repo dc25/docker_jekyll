@@ -3,7 +3,7 @@ FROM sshd
 RUN apt-get update && apt-get install -y \
     g++ \
     make \
-    nodejs-legacy \
+    nodejs \
     npm \
     ruby \
     ruby-dev
@@ -12,8 +12,5 @@ WORKDIR /tmp
 
 COPY build_scripts/Gemfile .
 COPY build_scripts/Gemfile.lock .
-COPY build_scripts/install_bundler .
-RUN ./install_bundler
-
-WORKDIR /workarea
-COPY build_scripts/jserv.sh .
+RUN gem install bundler 
+RUN bundle install
