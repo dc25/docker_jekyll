@@ -1,6 +1,0 @@
-#! /bin/bash
-
-sudo gem install bundler
-sudo gem install rake
-sudo /usr/local/bin/bundle install
-
