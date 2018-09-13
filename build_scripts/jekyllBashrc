@@ -1,0 +1,3 @@
+
+alias jserv='bundle exec jekyll serve -H 0.0.0.0 --baseurl "" --source source'
+alias bupd='bundle update'
