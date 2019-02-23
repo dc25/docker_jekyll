@@ -15,7 +15,6 @@ RUN su ${user} -c 'cp /tmp/jekyllBashrc ~'
 RUN su ${user} -c 'echo . ~/jekyllBashrc | tee -a ~/.bashrc'
 
 COPY build_scripts/Gemfile .
-COPY build_scripts/Gemfile.lock .
 RUN gem install bundler 
 RUN bundle install
 
