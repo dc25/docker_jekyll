@@ -1,3 +1,8 @@
 
-alias jserv='bundle exec jekyll serve -H 0.0.0.0 --baseurl "" --source source'
+alias jserv='bundle exec jekyll serve -H 0.0.0.0'
+alias jserv='bundle exec jekyll build'
 alias bupd='bundle update'
+alias binst='sudo bundle install'
+
+
+alias cdgnc='cd /repos/gitnc'

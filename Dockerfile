@@ -1,21 +1,25 @@
-FROM sshd
+FROM devbase
 
 ARG user
 ARG id
 
-RUN apt-get update && apt-get install -y \
-    nodejs \
-    npm \
-    ruby-dev
+RUN sudo apt-get update 
+RUN sudo apt-get install -y \
+    ruby-dev \
+    zlib1g-dev
+
+COPY build_scripts/install_npm.sh /tmp
+RUN /tmp/install_npm.sh
+
+COPY build_scripts/install_typescript.sh /tmp
+RUN /tmp/install_typescript.sh
 
 WORKDIR /tmp
+COPY build_scripts/Gemfile /tmp
+RUN sudo gem install bundler 
+RUN sudo bundle install
 
 COPY build_scripts/jekyllBashrc /tmp
-RUN su ${user} -c 'cp /tmp/jekyllBashrc ~'
-RUN su ${user} -c 'echo . ~/jekyllBashrc | tee -a ~/.bashrc'
-
-COPY build_scripts/Gemfile .
-RUN gem install bundler 
-RUN bundle install
-
+RUN cp /tmp/jekyllBashrc ~
+RUN echo . ~/jekyllBashrc | tee -a ~/.bashrc
 
