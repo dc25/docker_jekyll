@@ -4,5 +4,3 @@ alias jserv='bundle exec jekyll build'
 alias bupd='bundle update'
 alias binst='sudo bundle install'
 
-
-alias cdgnc='cd /repos/gitnc'
