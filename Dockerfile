@@ -14,9 +14,8 @@ RUN /tmp/install_typescript.sh
 
 RUN sudo gem install bundler 
 
-COPY --chown=$USER build_scripts/jekyllBashrc /tmp
-RUN cp /tmp/jekyllBashrc ~
-RUN echo . ~/jekyllBashrc | tee -a ~/.bashrc
+COPY --chown=$USER build_scripts/setup_home.sh /tmp
+RUN /tmp/setup_home.sh
 
 # EXPOSE 4000
 
